@@ -7,5 +7,5 @@ public interface Crud {
 
 	public boolean update(); // update
 
-	public boolean delect(); // delete
+	public boolean delete(); // delete
 }

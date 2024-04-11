@@ -21,7 +21,6 @@ public class DbConnect {
 			Class.forName("oracle.jdbc.OracleDriver"); // 드라이버 로드
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@" + DB_HOST + ":1521:xe", DB_USER, DB_PW); // DB 커넥트
 			conn.setAutoCommit(false); // 자동 커밋 끄기
-			System.out.println("DB 접속 성공");
 			stmt = conn.createStatement(); // sql 실행할 객체(statement)
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -38,15 +37,6 @@ public class DbConnect {
 		return rs;
 	}
 
-//	public ResultSet execute(String query) {
-//		try {
-//			rs = stmt.executeQuery(query);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return rs;
-//	}
-
 	public int update(PreparedStatement pstmt) { // insert, update, delete
 		int rows = 0;
 		try {
@@ -56,17 +46,6 @@ public class DbConnect {
 		}
 		return rows;
 	}
-
-//
-//	// 쿼리 실행
-//	public ResultSet select(String query) {
-//		try {
-//			rs = pstmt.executeQuery();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return rs;
-//	}
 
 	// 자원 해제
 	public void close() {
